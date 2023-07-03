@@ -25,7 +25,7 @@ const initializeDBAndServer = async () => {
   }
 };
 initializeDBAndServer();
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 // Get Books API
 app.get("/books/", async (request, response) => {
   const getBooksQuery = `
@@ -38,7 +38,7 @@ app.get("/books/", async (request, response) => {
   const booksArray = await db.all(getBooksQuery);
   response.send(booksArray);
 });
-
+------------------------------------------------------------------------------------------------------------------------------------------------------
 app.post("/users/", async (request, response) => {
   const { username, name, password, gender, location } = request.body;
   const hashedPassword = await bcrypt.hash(password, 12);
@@ -69,7 +69,7 @@ app.post("/users/", async (request, response) => {
     response.send("User already exits");
   }
 });
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 app.post("/login/", async (request, response) => {
   const { username, password } = request.body;
   const selectUserQuery = `
